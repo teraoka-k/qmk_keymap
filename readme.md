@@ -1,2 +1,2 @@
-# The Default Planck Layout
+# Keymap for Planck ez
 
