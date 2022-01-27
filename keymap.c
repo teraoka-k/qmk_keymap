@@ -1,13 +1,10 @@
 #include QMK_KEYBOARD_H
 
-extern MidiDevice midi_device;
-
 enum layers {
   BASE,
   LOWER,
   RAISE,
-  ADJUST,
-  MIDI
+  ADJUST
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -82,41 +79,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_PWR,   _______, _______, KC_WH_D, _______, KC_BRID, KC_BRIU, _______, KC_MS_U,  _______, KC_MPLY, KC_KANA,
     _______,  _______, KC_BTN1, KC_WH_U, KC_BTN2, KC_MPRV, KC_MNXT, KC_MS_L, KC_MS_D,  KC_MS_R, KC_WAKE, KC_MHEN,
     _______,  _______, _______, _______, _______, KC_VOLD, KC_VOLU, KC_MUTE, _______,  _______, KC_SLEP, RESET,
-    TG(MIDI), _______, _______, _______, _______, _______, _______, _______, _______,  _______, _______, _______
-),
-
-/* Midi
- * ,-----------------------------------------------------------------------------------.
- * |      |      |      |      |      |      |      |      |      |      |      |      |
- * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |      |      |      |      |      |      |      |      |      |      |      |
- * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |      |      |      |      |      |      |      |      |      |      |      |
- * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | BASE |      |      |      |      |             |      |      |      |      |      |
- * `-----------------------------------------------------------------------------------'
- */
-[MIDI] = LAYOUT_planck_grid(
-    _______,  MI_Cs,   MI_Ds,   _______, MI_Fs,   MI_VELD,  MI_VELU, MI_Gs,   MI_As,    _______, MI_Cs_1, MI_Ds_1,
-    _______,  MI_C,    MI_D,    MI_E,    MI_F,    MI_OCTD, MI_OCTU,MI_G,    MI_A,     MI_B,    MI_C_1,  MI_D_1,  
-    _______,  _______, _______, _______, _______, MI_BENDD, MI_BENDU, MI_MOD, _______,  _______, _______, _______,
-    TG(MIDI), _______, _______, MI_LEG,  MI_PORT, MI_SUS,   MI_SUS,  MI_SOST, MI_SOFT,  _______, _______, _______
+    _______, _______, _______, _______, _______, _______, _______, _______, _______,  _______, _______, _______
 )
+  
 };
 
 layer_state_t layer_state_set_user(layer_state_t state) {
   return update_tri_layer_state(state, LOWER, RAISE, ADJUST);
 }
-
-bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    switch (keycode) {
-        case MIDI:
-            if (record->event.pressed) {
-                midi_send_cc(&midi_device, 1, 80, 127);
-            } else {
-                midi_send_cc(&midi_device, 1, 80, 0);
-            }
-            return true;
-    }
-    return true;
-};
