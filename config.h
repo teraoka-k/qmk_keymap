@@ -1,4 +1,14 @@
+#ifdef MOUSEKEY_MOVE_DELTA
+   #undef MOUSEKEY_MOVE_DELTA
+   #define MOUSEKEY_MOVE_DELTA 1
+#endif
+
 #ifdef MOUSEKEY_TIME_TO_MAX
    #undef MOUSEKEY_TIME_TO_MAX
-   #define MOUSEKEY_TIME_TO_MAX 13 
+   #define MOUSEKEY_TIME_TO_MAX 35 
 #endif
+
+#ifdef MOUSEKEY_MAX_SPEED
+   #undef MOUSEKEY_MAX_SPEED
+   #define MOUSEKEY_MAX_SPEED 25
+#endif 
