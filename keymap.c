@@ -66,9 +66,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Adjust (Lower + Raise)
  * ,-----------------------------------------------------------------------------------.
- * | Power|      |      | W Dn |      | Bri- | Bri+ |      | M Up |Print | Play | kana |
+ * | Power|      | Btn1 | W Dn | Btn2 | Bri- | Bri+ |      | M Up |Print | Play | kana |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |      | Btn1 | W Up | Btn2 | Prev | Next | M L  | M Dn | M R  | Wake | 無変換|
+ * |      |      | WR   | W Up | W L  | Prev | Next | M L  | M Dn | M R  | Wake | 無変換|
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |      |      |      |      |      | Vol- | Vol+ | Mute |      |      | Sleep| RESET|
  * |------+------+------+------+------+------+------+------+------+------+------+------|
@@ -76,8 +76,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `-----------------------------------------------------------------------------------'
  */
 [ADJUST] = LAYOUT_planck_grid(
-    KC_PWR,   _______, _______, KC_WH_D, _______, KC_BRID, KC_BRIU, _______, KC_MS_U,  _______, KC_MPLY, KC_KANA,
-    _______,  _______, KC_BTN1, KC_WH_U, KC_BTN2, KC_MPRV, KC_MNXT, KC_MS_L, KC_MS_D,  KC_MS_R, KC_WAKE, KC_MHEN,
+    KC_PWR,   _______, KC_BTN1, KC_WH_D, KC_BTN2, KC_BRID, KC_BRIU, _______, KC_MS_U,  _______, KC_MPLY, KC_KANA,
+    _______,  _______, KC_WH_R, KC_WH_U, KC_WH_L, KC_MPRV, KC_MNXT, KC_MS_L, KC_MS_D,  KC_MS_R, KC_WAKE, KC_MHEN,
     _______,  _______, _______, _______, _______, KC_VOLD, KC_VOLU, KC_MUTE, _______,  _______, KC_SLEP, RESET,
     _______, _______, _______, _______, _______, _______, _______, _______, _______,  _______, _______, _______
 )

@@ -12,3 +12,8 @@
    #undef MOUSEKEY_MAX_SPEED
    #define MOUSEKEY_MAX_SPEED 25
 #endif 
+
+#ifdef MOUSEKEY_WHEEL_DELAY
+   #undef MOUSEKEY_WHEEL_DELAY
+   #define MOUSEKEY_WHEEL_DELAY 0
+#endif 
