@@ -1,1 +1,1 @@
-MIDI_ENABLE = yes
+MIDI_ENABLE = no
